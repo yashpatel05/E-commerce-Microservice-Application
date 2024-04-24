@@ -130,9 +130,6 @@ Access image service endpoint through the gateway:
 - **Test POST create image:** `http://localhost:8080/images/add` (with JSON body)
 - **Test GET image by ID:** `http://localhost:8080/images/{imageId}`
 
-### Authors
+### Author
 
 - **Yash Patel :** `N01537676`
-- **Jainish Patel :** `N01539567`
-- **Vijul Patel :** `N01549702`
-- **Shrey Shah :** `N01549811`
