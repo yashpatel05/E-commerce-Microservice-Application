@@ -44,9 +44,6 @@ Once the frontend server is running, you can access the application in your web 
 - Cart: `/cart` - Displays the current cart contents and allows users to manage items.
 - Checkout: `/checkout` - Allows users to place orders.
 
-## Authors
+## Author
 
 - **Yash Patel :** `N01537676`
-- **Jainish Patel :** `N01539567`
-- **Vijul Patel :** `N01549702`
-- **Shrey Shah :** `N01549811`
