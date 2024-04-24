@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+  admin-service:
+    image: admin-service
+    ports:
+      - "8083:8083"
+    depends_on:
+      - centralized-db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://centralized-db:3306/e-commerce
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ""
+
+  product-service:
+    image: product-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - centralized-db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://centralized-db:3306/e-commerce
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ""
+
+  order-service:
+    image: order-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - centralized-db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://centralized-db:3306/e-commerce
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ""
+
+  image-service:
+    image: image-service
+    ports:
+      - "8084:8084"
+    depends_on:
+      - centralized-db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://centralized-db:3306/e-commerce
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ""
+
+  gateway-service:
+    image: gateway-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - admin-service
+      - product-service
+      - order-service
+      - image-service
+
+  centralized-db:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: e-commerce
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "3306:3306"
+    volumes:
+      - centralized-db-data:/var/lib/mysql
+
+networks:
+  default:
+    name: e-commerce-network
+
+volumes:
+  centralized-db-data:
