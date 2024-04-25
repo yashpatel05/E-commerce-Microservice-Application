@@ -130,6 +130,10 @@ Access image service endpoint through the gateway:
 - **Test POST create image:** `http://localhost:8080/images/add` (with JSON body)
 - **Test GET image by ID:** `http://localhost:8080/images/{imageId}`
 
-### Author
+## Additional Content and Screenshots
+
+For additional content and screenshots, please refer to the word file [here](https://github.com/yashpatel05/E-commerce-Microservice-Application/blob/main/E-commerce-Microservice-App.docx).
+
+## Author
 
 - **Yash Patel :** `N01537676`
